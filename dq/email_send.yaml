@@ -1,0 +1,103 @@
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "id"
+
+- criticality: error
+  check:
+    function: regex_match
+    arguments:
+      column: "id"
+      regex: "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "to_email"
+
+- criticality: error
+  check:
+    function: regex_match
+    arguments:
+      column: "to_email"
+      regex: "^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$"
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "from_email"
+
+- criticality: error
+  check:
+    function: regex_match
+    arguments:
+      column: "from_email"
+      regex: "^[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}$"
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "subject"
+
+- criticality: error
+  check:
+    function: sql_expression
+    arguments:
+      expression: "length(`subject`) <= 255"
+      msg: "subject must have maximum length of 255"
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "status"
+
+- criticality: error
+  check:
+    function: is_in_list
+    arguments:
+      column: "status"
+      allowed:
+        - "pending"
+        - "queued"
+        - "sent"
+        - "failed"
+        - "bounced"
+
+- criticality: error
+  check:
+    function: sql_expression
+    arguments:
+      expression: "`retry_count` IS NULL OR (`retry_count` >= 0)"
+      msg: "retry_count must not be less than 0"
+
+- criticality: error
+  check:
+    function: sql_expression
+    arguments:
+      expression: "`sent_at` IS NULL OR (to_timestamp(`sent_at`) IS NOT NULL)"
+      msg: "sent_at must be a valid timestamp"
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "created_at"
+
+- criticality: error
+  check:
+    function: is_valid_timestamp
+    arguments:
+      column: "created_at"
+
+- criticality: error
+  check:
+    function: sql_expression
+    arguments:
+      expression: "`updated_at` IS NULL OR (to_timestamp(`updated_at`) IS NOT NULL)"
+      msg: "updated_at must be a valid timestamp"

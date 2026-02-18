@@ -1,0 +1,18 @@
+opendpi: 1.0.0
+info:
+  title: marketing
+  version: 1.0.0
+  description: Data for marketing
+connections:
+  mysqlwarehouse:
+    type: sql
+    host: https://gasdf.com
+    description: My database
+ports:
+  email_send:
+    description: All emails sent
+    connections:
+      - connection: '#/connections/mysqlwarehouse'
+        location: email_send
+    schema:
+      $ref: schemas/email_send.schema.yaml
