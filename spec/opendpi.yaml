@@ -1,0 +1,12 @@
+opendpi: 1.0.0
+info:
+  title: braze
+  version: 1.0.0
+  description: marketing data
+connections: {}
+ports:
+  user_events:
+    description: user events table
+    connections: []
+    schema:
+      $ref: schemas/user_events.schema.yaml
