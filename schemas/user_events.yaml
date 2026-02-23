@@ -1,0 +1,24 @@
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "dt"
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "game_id"
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "game_var_id"
+
+- criticality: error
+  check:
+    function: is_not_null
+    arguments:
+      column: "trns_tp"

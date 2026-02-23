@@ -1,18 +1,11 @@
 opendpi: 1.0.0
 info:
-  title: marketing
+  title: braze
   version: 1.0.0
-  description: Data for marketing
-connections:
-  mysqlwarehouse:
-    type: sql
-    host: https://gasdf.com
-    description: My database
+  description: marketing
+connections: {}
 ports:
-  email_send:
-    description: All emails sent
-    connections:
-      - connection: '#/connections/mysqlwarehouse'
-        location: email_send
+  user_events:
+    connections: []
     schema:
-      $ref: schemas/email_send.schema.yaml
+      $ref: schemas/user_events.schema.yaml
