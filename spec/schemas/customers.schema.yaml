@@ -1,0 +1,60 @@
+type: object
+properties:
+  customer_id:
+    type: string
+  first_name:
+    type: string
+  last_name:
+    type: string
+  email:
+    type: string
+  phone:
+    type: string
+  date_of_birth:
+    type: timestamp
+  gender:
+    type: string
+  city:
+    type: string
+  region:
+    type: string
+  country_code:
+    type: string
+  registration_date:
+    type: timestamp
+  is_active:
+    type: boolean
+  customer_segment:
+    type: string
+    description: Segmentation category (e.g., new, regular, vip).
+  lifetime_spend:
+    type: decimal(20,8)
+  preferred_store_id:
+    type: integer
+  _record_id:
+    type: string
+    description: Unique identifier for the record.
+  _load_date:
+    type: timestamp
+    description: Timestamp indicating when the record was loaded.
+  _trace:
+    type: object
+    properties:
+      _record_id:
+        type: string
+      _source_table:
+        type: string
+    description: Tracking metadata for lineage and traceability.
+  _dq_issue:
+    type: boolean
+    description: Flag indicating if the record has a data quality issue.
+  _dq_issue_reason:
+    type: array
+    items:
+      type: string
+    description: Reason for the data quality issue.
+  _silver_ts:
+    type: timestamp
+    description: Timestamp indicating when the record was written.
+required:
+- customer_id

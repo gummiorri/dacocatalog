@@ -1,0 +1,57 @@
+type: object
+properties:
+  store_id:
+    type: integer
+  store_name:
+    type: string
+  store_type:
+    type: string
+    description: Type of store (e.g., flagship, outlet, franchise).
+  address:
+    type: string
+  city:
+    type: string
+  region:
+    type: string
+  postal_code:
+    type: string
+  country_code:
+    type: string
+  latitude:
+    type: decimal(10,7)
+  longitude:
+    type: decimal(10,7)
+  is_active:
+    type: boolean
+  opened_date:
+    type: timestamp
+  manager_id:
+    type: string
+  _record_id:
+    type: string
+    description: Unique identifier for the record.
+  _load_date:
+    type: timestamp
+    description: Timestamp indicating when the record was loaded.
+  _trace:
+    type: object
+    properties:
+      _record_id:
+        type: string
+      _source_table:
+        type: string
+    description: Tracking metadata for lineage and traceability.
+  _dq_issue:
+    type: boolean
+    description: Flag indicating if the record has a data quality issue.
+  _dq_issue_reason:
+    type: array
+    items:
+      type: string
+    description: Reason for the data quality issue.
+  _silver_ts:
+    type: timestamp
+    description: Timestamp indicating when the record was written.
+required:
+- store_id
+- store_name

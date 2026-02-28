@@ -1,8 +1,8 @@
 opendpi: 1.0.0
 info:
-  title: braze
+  title: retail
   version: 1.0.0
-  description: marketing data
+  description: retail data
 connections: {}
 ports:
   user_events:
@@ -10,3 +10,33 @@ ports:
     connections: []
     schema:
       $ref: schemas/user_events.schema.yaml
+  products:
+    description: product catalog
+    connections: []
+    schema:
+      $ref: schemas/products.schema.yaml
+  stores:
+    description: store locations
+    connections: []
+    schema:
+      $ref: schemas/stores.schema.yaml
+  orders:
+    description: customer orders
+    connections: []
+    schema:
+      $ref: schemas/orders.schema.yaml
+  customers:
+    description: customer profiles
+    connections: []
+    schema:
+      $ref: schemas/customers.schema.yaml
+  order_lines:
+    description: order line items
+    connections: []
+    schema:
+      $ref: schemas/order_lines.schema.yaml
+  inventory:
+    description: store inventory levels
+    connections: []
+    schema:
+      $ref: schemas/inventory.schema.yaml

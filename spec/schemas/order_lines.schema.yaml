@@ -1,61 +1,31 @@
 type: object
 properties:
+  line_item_id:
+    type: long
+  order_id:
+    type: long
   dt:
     type: timestamp
-  game_id:
-    type: integer
-  game_var_id:
-    type: integer
-  trns_tp:
-    type: integer
-  acc_id:
-    type: string
-  year_:
-    type: integer
-  bd_id:
-    type: integer
-  ret_id:
-    type: integer
-  parent_ret_id:
-    type: integer
-  oper_id:
-    type: integer
-  term_id:
-    type: long
-  empl_id:
-    type: string
-  external_retailer_id:
-    type: integer
-  played_draw:
-    type: integer
   product_id:
     type: integer
-  coupons:
-    type: long
-  coupons_gm_var:
-    type: long
-  cols:
-    type: long
+  sku:
+    type: string
+  quantity:
+    type: integer
+  unit_price:
+    type: decimal(20,8)
   gross_amn:
     type: decimal(20,8)
   net_amn:
     type: decimal(20,8)
-  refund_amn:
-    type: decimal(20,8)
   tax_amn:
-    type: decimal(20,8)
-  bonus_amn:
     type: decimal(20,8)
   disc_amn:
     type: decimal(20,8)
-  comm_amn:
-    type: decimal(20,8)
-  fee_amn:
-    type: decimal(20,8)
-  refund_coupons:
-    type: long
-  refund_fee_cpns:
-    type: long
+  return_flag:
+    type: boolean
+  return_reason:
+    type: string
   _record_id:
     type: string
     description: Unique identifier for the record.
@@ -82,7 +52,6 @@ properties:
     type: timestamp
     description: Timestamp indicating when the record was written.
 required:
-- dt
-- game_id
-- game_var_id
-- trns_tp
+- line_item_id
+- order_id
+- product_id
