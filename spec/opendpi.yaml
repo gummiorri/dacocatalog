@@ -3,13 +3,32 @@ info:
   title: retail
   version: 1.0.0
   description: retail data
-connections: {}
+connections:
+  databricks_connection:
+    type: databricks
+    host: https://www.example.com/
+    description: My Databricks Connection
 ports:
-  user_events:
-    description: user events table
+  customers:
+    description: customer profiles
     connections: []
     schema:
-      $ref: schemas/user_events.schema.yaml
+      $ref: schemas/customers.schema.yaml
+  inventory:
+    description: store inventory levels
+    connections: []
+    schema:
+      $ref: schemas/inventory.schema.yaml
+  order_lines:
+    description: order line items
+    connections: []
+    schema:
+      $ref: schemas/order_lines.schema.yaml
+  orders:
+    description: customer orders
+    connections: []
+    schema:
+      $ref: schemas/orders.schema.yaml
   products:
     description: product catalog
     connections: []
@@ -20,23 +39,8 @@ ports:
     connections: []
     schema:
       $ref: schemas/stores.schema.yaml
-  orders:
-    description: customer orders
+  user_events:
+    description: user events table
     connections: []
     schema:
-      $ref: schemas/orders.schema.yaml
-  customers:
-    description: customer profiles
-    connections: []
-    schema:
-      $ref: schemas/customers.schema.yaml
-  order_lines:
-    description: order line items
-    connections: []
-    schema:
-      $ref: schemas/order_lines.schema.yaml
-  inventory:
-    description: store inventory levels
-    connections: []
-    schema:
-      $ref: schemas/inventory.schema.yaml
+      $ref: schemas/user_events.schema.yaml
